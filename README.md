@@ -1,1 +1,1 @@
-# githab_create_pr
+# githab-create-pr
