@@ -6,7 +6,7 @@ from selenium import webdriver
 def browser_manager():
     browser.config.base_url= 'https://demoqa.com/automation-practice-form'
     browser.config.timeout = 2.0
-    browser.config.window_width = 1200
+    browser.config.window_width = 1900
     browser.config.window_height = 1080
 
     # browser.config.type_by_js = True
