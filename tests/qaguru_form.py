@@ -1,6 +1,8 @@
+import os.path
+
 from selene import browser, have, command
 import time
-
+from selenium.webdriver import Keys
 
 # AAA Arrange Act Assert
 # BDD Given When Then
@@ -15,12 +17,18 @@ def test_registration_form():
     # browser.all('[name=gender]').element_by(have.value('Female')).element('..').click()
     browser.all('[for^=gender-radio]').element_by(have.text('Female')).click()
     browser.element('#userNumber').type('9185024041')
-    from selenium.webdriver import Keys
+
     browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type('04 August 1967').press_enter()
     browser.element('#subjectsInput').type('History').press_enter()
     browser.element('[for=hobbies-checkbox-2]').click()
+    import tests
+    browser.element('#uploadPicture').send_keys(os.path.dirname(tests.__file__),'/files/ball.jpg')
 
     browser.element('#currentAddress').type('Russian Novocherkassk')
+    browser.element('#state').click()
+    browser.all('[id^=react-select-3-option]').element_by(have.text('Rajasthan')).click()
+    browser.element('#city').click()
+    browser.all('[id^=react-select-4-option]').element_by(have.text('Jaipur')).click()
 
     time.sleep(3)
 
