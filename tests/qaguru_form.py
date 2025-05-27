@@ -1,4 +1,4 @@
-from selene import browser, have
+from selene import browser, have, command
 import time
 
 
@@ -14,5 +14,13 @@ def test_registration_form():
     # browser.element('[name=gender][value=Female]+label').click()
     # browser.all('[name=gender]').element_by(have.value('Female')).element('..').click()
     browser.all('[for^=gender-radio]').element_by(have.text('Female')).click()
+    browser.element('#userNumber').type('9185024041')
+    from selenium.webdriver import Keys
+    browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type('04 August 1967').press_enter()
+    browser.element('#subjectsInput').type('History').press_enter()
+    browser.element('[for=hobbies-checkbox-2]').click()
+
+    browser.element('#currentAddress').type('Russian Novocherkassk')
+
     time.sleep(3)
 
