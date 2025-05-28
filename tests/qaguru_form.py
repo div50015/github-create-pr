@@ -30,5 +30,7 @@ def test_registration_form():
     browser.element('#city').click()
     browser.all('[id^=react-select-4-option]').element_by(have.text('Jaipur')).click()
 
+    browser.element('#submit').click()
+
     time.sleep(3)
 
